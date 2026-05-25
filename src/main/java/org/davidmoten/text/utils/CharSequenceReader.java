@@ -16,7 +16,6 @@ package org.davidmoten.text.utils;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.CharBuffer;
-
 import com.github.davidmoten.guavamini.Preconditions;
 
 /**
@@ -29,7 +28,9 @@ import com.github.davidmoten.guavamini.Preconditions;
 final class CharSequenceReader extends Reader {
 
     private CharSequence seq;
+
     private int pos;
+
     private int mark;
 
     public CharSequenceReader(CharSequence seq) {
@@ -52,75 +53,46 @@ final class CharSequenceReader extends Reader {
 
     @Override
     public synchronized int read(CharBuffer target) throws IOException {
-        Preconditions.checkNotNull(target);
-        checkOpen();
-        if (!hasRemaining()) {
-            return -1;
-        }
-        int charsToRead = Math.min(target.remaining(), remaining());
-        for (int i = 0; i < charsToRead; i++) {
-            target.put(seq.charAt(pos++));
-        }
-        return charsToRead;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public synchronized int read() throws IOException {
-        checkOpen();
-        return hasRemaining() ? seq.charAt(pos++) : -1;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public synchronized int read(char[] cbuf, int off, int len) throws IOException {
-        if (len < 0 || off < 0 || off + len > cbuf.length) {
-            throw new IndexOutOfBoundsException();
-        }
-        checkOpen();
-        if (!hasRemaining()) {
-            return -1;
-        }
-        int charsToRead = Math.min(len, remaining());
-        for (int i = 0; i < charsToRead; i++) {
-            cbuf[off + i] = seq.charAt(pos++);
-        }
-        return charsToRead;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public synchronized long skip(long n) throws IOException {
-        Preconditions.checkArgument(n >= 0, "n may not be negative");
-        checkOpen();
-        int charsToSkip = (int) Math.min(remaining(), n); // safe because remaining is an int
-        pos += charsToSkip;
-        return charsToSkip;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public synchronized boolean ready() throws IOException {
-        checkOpen();
-        return true;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean markSupported() {
-        return true;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public synchronized void mark(int readAheadLimit) throws IOException {
-        Preconditions.checkArgument(readAheadLimit >= 0, "readAheadLimit may not be negative");
-        checkOpen();
-        mark = pos;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public synchronized void reset() throws IOException {
-        checkOpen();
-        pos = mark;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public synchronized void close() throws IOException {
-        seq = null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

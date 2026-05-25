@@ -9,7 +9,6 @@ public interface LineConsumer {
     void writeNewLine() throws IOException;
 
     default void write(String s) throws IOException {
-        char[] chars = s.toCharArray();
-        write(chars, 0, chars.length);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

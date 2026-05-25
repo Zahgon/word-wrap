@@ -5,6 +5,7 @@ import java.util.Arrays;
 final class StringBuilder2 implements CharSequence {
 
     private char[] chars;
+
     private int length;
 
     StringBuilder2(String s) {
@@ -21,31 +22,26 @@ final class StringBuilder2 implements CharSequence {
     }
 
     char[] internalArray() {
-        return chars;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int length() {
-        return length;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public char charAt(int index) {
-        return chars[index];
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public CharSequence subSequence(int start, int end) {
-        char[] chars2 = new char[end - start];
-        System.arraycopy(chars, start, chars2, 0, end - start);
-        return new StringBuilder2(chars2, chars2.length);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void append(StringBuilder2 s) {
-        int len = s.length();
-        checkSize(len);
-        System.arraycopy(s.chars, 0, chars, length, len);
-        length += len;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private void checkSize(int len) {
@@ -63,44 +59,32 @@ final class StringBuilder2 implements CharSequence {
     }
 
     public void setLength(int length) {
-        this.length = length;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void append(char ch) {
-        checkSize(1);
-        chars[length] = ch;
-        length++;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void delete(int start, int end) {
-        System.arraycopy(chars, end, chars, start, length - end);
-        length -= end - start;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public String substring(int start, int end) {
-        return new String(chars, start, end - start);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String toString() {
-        return new String(chars, 0, length);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * Trims right space from this and returns {@code this}.
-     * 
+     *
      * @return this
      */
     StringBuilder2 rightTrim() {
-        int i = length();
-        while (i > 0) {
-            if (!Character.isWhitespace(charAt(i - 1))) {
-                break;
-            }
-            i--;
-        }
-        length = i;
-        return this;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }
